@@ -1,8 +1,13 @@
 const mongoose = require("mongoose");
-constMinDB = "MinDB"
+const minDB = "minDB"
 
-mongoose.connect(`mongodb://localhost/${minDB}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-
-})
+mongoose.connect(`mongodb://127.0.0.1:27017/${minDB}`,
+    {useNewUrlParser:true,
+    useUnifiedTopology:true,
+    })
+    .then(()=>{
+        console.log(`You are connected to ${minDB}`)
+    })
+    .catch((err)=>{
+        console.log(`An error occurred connecting to ${minDB}`, err)
+    })
