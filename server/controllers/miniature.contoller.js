@@ -30,8 +30,18 @@ module.exports = {
     },
 
     findOneMiniature: (req, res)=>{
-        
-    }
+        Miniature.findOne({_id: req.params.id})
+            .then((oneMiniature)=>{
+                console.log(oneMiniature);
+                res.json(oneMiniature);
+            })
+            .catch((err)=>{
+                console.log("findOneMiniature has failed");
+                res.json({message: "Error in findOneMiniature", error: err})
+            })
+    },
+
+    
 
 
 }
