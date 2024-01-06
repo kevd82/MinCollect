@@ -41,7 +41,34 @@ module.exports = {
             })
     },
 
-    
+    deleteOneMiniature: (req, res)=>{
+        Miniature.deleteOne({_id: req.params.id})
+            .then((deletedMiniature)=>{
+                console.log(deletedMiniature);
+                res.json(deletedMiniature);
+            })
+            .catch((err)=>{
+                console.log("deleteOneMiniature has failed");
+                res.json({message: "Error in deleteOneMiniature", error: err})
+            })
+    },
+
+    updateMiniature: (req, res)=>{
+        Miniature.findOneAndUpdate({_id: req.params.id},
+            req.body,
+            {new:true, runValidators:true}
+            )
+            .then((updatedMiniature)=>{
+                console.log(updatedMiniature);
+                res.json(updatedMiniature);
+            })
+            .catch((err)=>{
+                console.log("updateMiniature has failed");
+                res.status(400).json(err)
+            })
+    },
+
+
 
 
 }
