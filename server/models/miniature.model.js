@@ -19,10 +19,6 @@ const MiniatureSchema = new mongoose.Schema({
         type: String,
     },
 
-    set: {
-        type: String,
-    },
-
     material: {
         type: String,
         required: [true, "Field is required."],
