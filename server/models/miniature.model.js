@@ -40,7 +40,7 @@ const MiniatureSchema = new mongoose.Schema({
 
     wishlist: {
         type: Boolean,
-        required: [true, "Field is required."],
+        default: false,
         
     },
 
